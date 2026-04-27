@@ -1,0 +1,41 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
+*.properties
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Keystore
+*.jks
+*.keystore
+
+# Log files
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# APK
+*.apk
+!app/build/outputs/apk/debug/app-debug.apk
+
+# Screenshots (development only)
+nexus_screenshot*.png
+
+# Design docs (keep DESIGN.md)
+# Remove old design files
+deals_pipeline/
+contact_details/
+dashboard/
+contacts/
+nexus_crm_prototype_*/
+design.md
+project_brief_nexus_crm.md
+supabase_inspired_dark_crm/
