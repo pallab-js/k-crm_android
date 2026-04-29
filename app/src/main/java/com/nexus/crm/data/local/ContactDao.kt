@@ -22,6 +22,9 @@ interface ContactDao {
     @Query("SELECT COUNT(*) FROM contacts")
     fun getContactCount(): Flow<Int>
 
+    @Query("SELECT COUNT(*) FROM contacts")
+    suspend fun getContactCountSync(): Int
+
     @Query("SELECT COUNT(*) FROM contacts WHERE status = :status")
     fun getContactCountByStatus(status: ContactStatus): Flow<Int>
 

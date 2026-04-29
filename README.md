@@ -6,8 +6,9 @@ A dark-mode native Android CRM app built with Kotlin, Jetpack Compose, Room data
 
 - **Dashboard** - Overview metrics: revenue, active deals, win rate, today's tasks
 - **Contacts** - Manage leads, customers, and opportunities
-- **Deals** - Pipeline tracking with deal stages (Appointment → Presentation → Proposal → Negotiation → Closed)
-- **Tasks** - Task management with priorities and due dates
+- **Deals** - Pipeline tracking with deal stages
+- **Tasks** - Task management with priorities
+- **Security** - Encrypted local storage, secure logging, and network hardening
 
 ## Tech Stack
 
@@ -16,8 +17,10 @@ A dark-mode native Android CRM app built with Kotlin, Jetpack Compose, Room data
 | Language | Kotlin 1.9.x |
 | UI | Jetpack Compose + Material 3 |
 | DI | Hilt |
-| Database | Room (SQLite) |
+| Database | Room (SQLite) + **SQLCipher** (Encryption) |
 | Architecture | MVVM + Clean Architecture |
+| Logging | **Timber** (Secure Logging) |
+| Security | R8 Obfuscation, Network Security Config |
 | Min SDK | 24 (Android 7.0) |
 | Target SDK | 34 (Android 14) |
 

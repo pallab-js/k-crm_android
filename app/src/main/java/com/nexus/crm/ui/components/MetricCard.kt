@@ -1,5 +1,6 @@
 package com.nexus.crm.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,11 +27,12 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.nexus.crm.ui.theme.BorderDefault
-import com.nexus.crm.ui.theme.DarkSurface
+import com.nexus.crm.ui.theme.DarkBackground
+import com.nexus.crm.ui.theme.DarkBorder
 import com.nexus.crm.ui.theme.SupabaseGreen
-import com.nexus.crm.ui.theme.TextMuted
-import com.nexus.crm.ui.theme.TextPrimary
-import com.nexus.crm.ui.theme.TextSecondary
+import com.nexus.crm.ui.theme.MidGray
+import com.nexus.crm.ui.theme.OffWhite
+import com.nexus.crm.ui.theme.LightGray
 
 @Composable
 fun MetricCard(
@@ -41,13 +43,15 @@ fun MetricCard(
     modifier: Modifier = Modifier,
     trendColor: Color = SupabaseGreen
 ) {
+
     Card(
         modifier = modifier
             .width(160.dp),
         colors = CardDefaults.cardColors(
-            containerColor = DarkSurface
+            containerColor = DarkBackground
         ),
         shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, DarkBorder),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
         Column(
@@ -63,7 +67,7 @@ fun MetricCard(
                 Text(
                     text = title,
                     style = MaterialTheme.typography.labelMedium,
-                    color = TextMuted
+                    color = MidGray
                 )
                 Icon(
                     imageVector = icon,
@@ -79,7 +83,7 @@ fun MetricCard(
                 text = value,
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.SemiBold,
-                color = TextPrimary
+                color = OffWhite
             )
 
             Spacer(modifier = Modifier.height(4.dp))
@@ -101,7 +105,7 @@ fun NexusCard(
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
-            containerColor = DarkSurface
+            containerColor = DarkBackground
         ),
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)

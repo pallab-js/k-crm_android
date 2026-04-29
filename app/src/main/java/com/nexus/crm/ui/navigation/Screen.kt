@@ -54,6 +54,15 @@ sealed class Screen(
         unselectedIcon = Icons.Outlined.CheckCircle
     )
 
+    data object AddEditContact : Screen(
+        route = "contacts/add_edit?contactId={contactId}",
+        title = "Add/Edit Contact",
+        selectedIcon = Icons.Filled.People,
+        unselectedIcon = Icons.Outlined.People
+    ) {
+        fun createRoute(contactId: Long? = null) = if (contactId != null) "contacts/add_edit?contactId=$contactId" else "contacts/add_edit"
+    }
+
     companion object {
         val bottomNavItems = listOf(Dashboard, Contacts, Deals, Tasks)
     }

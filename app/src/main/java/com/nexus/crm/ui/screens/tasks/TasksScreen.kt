@@ -37,10 +37,10 @@ import com.nexus.crm.data.model.Task
 import com.nexus.crm.ui.components.FilterChip
 import com.nexus.crm.ui.components.NexusFAB
 import com.nexus.crm.ui.components.TaskListItem
-import com.nexus.crm.ui.theme.DarkSurface
+import com.nexus.crm.ui.theme.DarkBackground
 import com.nexus.crm.ui.theme.SupabaseGreen
-import com.nexus.crm.ui.theme.TextMuted
-import com.nexus.crm.ui.theme.TextPrimary
+import com.nexus.crm.ui.theme.MidGray
+import com.nexus.crm.ui.theme.OffWhite
 import java.util.Calendar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +55,7 @@ fun TasksScreen(
         floatingActionButton = {
             NexusFAB(onClick = { showAddDialog = true })
         },
-        containerColor = DarkSurface,
+        containerColor = DarkBackground,
         topBar = {
             TopAppBar(
                 title = {
@@ -64,19 +64,19 @@ fun TasksScreen(
                             text = "Tasks",
                             style = MaterialTheme.typography.headlineMedium,
                             fontWeight = FontWeight.SemiBold,
-                            color = TextPrimary
+                            color = OffWhite
                         )
                         if (uiState.pendingCount > 0) {
                             Text(
                                 text = "${uiState.pendingCount} pending",
                                 style = MaterialTheme.typography.bodySmall,
-                                color = TextMuted
+                                color = MidGray
                             )
                         }
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = DarkSurface
+                    containerColor = DarkBackground
                 )
             )
         }
@@ -106,7 +106,7 @@ fun TasksScreen(
                 Text(
                     text = "No tasks found",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = TextMuted,
+                    color = MidGray,
                     modifier = Modifier.padding(16.dp)
                 )
             }
@@ -150,11 +150,11 @@ fun AddTaskDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        containerColor = DarkSurface,
+        containerColor = DarkBackground,
         title = {
             Text(
                 text = "New Task",
-                color = TextPrimary
+                color = OffWhite
             )
         },
         text = {
@@ -166,9 +166,9 @@ fun AddTaskDialog(
                     singleLine = true,
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = SupabaseGreen,
-                        unfocusedBorderColor = TextMuted,
-                        focusedTextColor = TextPrimary,
-                        unfocusedTextColor = TextPrimary
+                        unfocusedBorderColor = MidGray,
+                        focusedTextColor = OffWhite,
+                        unfocusedTextColor = OffWhite
                     )
                 )
                 OutlinedTextField(
@@ -178,9 +178,9 @@ fun AddTaskDialog(
                     minLines = 2,
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = SupabaseGreen,
-                        unfocusedBorderColor = TextMuted,
-                        focusedTextColor = TextPrimary,
-                        unfocusedTextColor = TextPrimary
+                        unfocusedBorderColor = MidGray,
+                        focusedTextColor = OffWhite,
+                        unfocusedTextColor = OffWhite
                     )
                 )
             }
@@ -200,12 +200,12 @@ fun AddTaskDialog(
                     containerColor = SupabaseGreen
                 )
             ) {
-                Text("Add", color = DarkSurface)
+                Text("Add", color = DarkBackground)
             }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Cancel", color = TextMuted)
+                Text("Cancel", color = MidGray)
             }
         }
     )

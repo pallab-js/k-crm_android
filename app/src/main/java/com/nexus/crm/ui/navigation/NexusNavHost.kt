@@ -24,10 +24,10 @@ import com.nexus.crm.ui.screens.dashboard.DashboardScreen
 import com.nexus.crm.ui.screens.deals.DealsScreen
 import com.nexus.crm.ui.screens.tasks.TasksScreen
 import com.nexus.crm.ui.theme.BorderDefault
-import com.nexus.crm.ui.theme.DarkSurface
+import com.nexus.crm.ui.theme.DarkBackground
 import com.nexus.crm.ui.theme.SupabaseGreen
-import com.nexus.crm.ui.theme.TextMuted
-import com.nexus.crm.ui.theme.TextPrimary
+import com.nexus.crm.ui.theme.MidGray
+import com.nexus.crm.ui.theme.OffWhite
 
 @Composable
 fun NexusNavHost() {
@@ -43,8 +43,8 @@ fun NexusNavHost() {
         bottomBar = {
             if (showBottomBar) {
                 NavigationBar(
-                    containerColor = DarkSurface,
-                    contentColor = TextPrimary
+                    containerColor = DarkBackground,
+                    contentColor = OffWhite
                 ) {
                     Screen.bottomNavItems.forEach { screen ->
                         val selected = currentDestination?.hierarchy?.any {
@@ -72,9 +72,9 @@ fun NexusNavHost() {
                             colors = NavigationBarItemDefaults.colors(
                                 selectedIconColor = SupabaseGreen,
                                 selectedTextColor = SupabaseGreen,
-                                unselectedIconColor = TextMuted,
-                                unselectedTextColor = TextMuted,
-                                indicatorColor = DarkSurface
+                                unselectedIconColor = MidGray,
+                                unselectedTextColor = MidGray,
+                                indicatorColor = DarkBackground
                             )
                         )
                     }
@@ -95,6 +95,9 @@ fun NexusNavHost() {
                 ContactsScreen(
                     onContactClick = { contactId ->
                         navController.navigate(Screen.ContactDetail.createRoute(contactId))
+                    },
+                    onAddContact = {
+                        navController.navigate(Screen.AddEditContact.createRoute())
                     }
                 )
             }
@@ -108,6 +111,23 @@ fun NexusNavHost() {
                 val contactId = backStackEntry.arguments?.getLong("contactId") ?: 0L
                 ContactDetailScreen(
                     contactId = contactId,
+                    onNavigateBack = { navController.popBackStack() },
+                    onEditContact = { id ->
+                        navController.navigate(Screen.AddEditContact.createRoute(id))
+                    }
+                )
+            }
+
+            composable(
+                route = Screen.AddEditContact.route,
+                arguments = listOf(
+                    navArgument("contactId") { 
+                        type = NavType.LongType
+                        defaultValue = -1L
+                    }
+                )
+            ) {
+                AddEditContactScreen(
                     onNavigateBack = { navController.popBackStack() }
                 )
             }

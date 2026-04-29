@@ -1,26 +1,18 @@
 package com.nexus.crm.ui.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.nexus.crm.ui.theme.StatusCustomer
-import com.nexus.crm.ui.theme.StatusLead
-import com.nexus.crm.ui.theme.StatusOpportunity
-import com.nexus.crm.ui.theme.TextPrimary
 import com.nexus.crm.data.model.ContactStatus
+import com.nexus.crm.data.model.DealStage
+import com.nexus.crm.data.model.Priority
+import com.nexus.crm.ui.theme.*
 
 @Composable
 fun StatusBadge(
@@ -50,14 +42,46 @@ fun StatusBadge(
 }
 
 @Composable
+fun DealStageBadge(
+    stage: DealStage,
+    modifier: Modifier = Modifier
+) {
+    val text = stage.name.replace("_", " ")
+    val color = when (stage) {
+        DealStage.APPOINTMENT -> StatusLead
+        DealStage.QUALIFIED -> StatusOpportunity
+        DealStage.PRESENTATION -> StatusOpportunity
+        DealStage.PROPOSAL -> StatusOpportunity
+        DealStage.NEGOTIATION -> StatusOpportunity
+        DealStage.CLOSED_WON -> StatusCustomer
+        DealStage.CLOSED_LOST -> PriorityHigh
+    }
+
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(9999.dp),
+        color = color.copy(alpha = 0.1f)
+    ) {
+        Text(
+            text = text,
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
+            fontSize = 9.sp,
+            fontWeight = FontWeight.SemiBold,
+            color = color,
+            letterSpacing = 0.4.sp
+        )
+    }
+}
+
+@Composable
 fun PriorityBadge(
-    priority: com.nexus.crm.data.model.Priority,
+    priority: Priority,
     modifier: Modifier = Modifier
 ) {
     val (backgroundColor, text) = when (priority) {
-        com.nexus.crm.data.model.Priority.HIGH -> com.nexus.crm.ui.theme.PriorityHigh to "HIGH"
-        com.nexus.crm.data.model.Priority.MEDIUM -> com.nexus.crm.ui.theme.PriorityMedium to "MEDIUM"
-        com.nexus.crm.data.model.Priority.LOW -> com.nexus.crm.ui.theme.PriorityLow to "LOW"
+        Priority.HIGH -> PriorityHigh to "HIGH"
+        Priority.MEDIUM -> PriorityMedium to "MEDIUM"
+        Priority.LOW -> PriorityLow to "LOW"
     }
 
     Surface(

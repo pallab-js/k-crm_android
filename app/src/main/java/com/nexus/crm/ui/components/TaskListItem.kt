@@ -1,5 +1,8 @@
 package com.nexus.crm.ui.components
 
+import androidx.compose.foundation.BorderStroke
+import com.nexus.crm.ui.theme.DarkBorder
+
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,11 +23,11 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nexus.crm.data.model.Task
-import com.nexus.crm.ui.theme.DarkSurface
+import com.nexus.crm.ui.theme.DarkBackground
 import com.nexus.crm.ui.theme.SupabaseGreen
-import com.nexus.crm.ui.theme.TextMuted
-import com.nexus.crm.ui.theme.TextPrimary
-import com.nexus.crm.ui.theme.TextSecondary
+import com.nexus.crm.ui.theme.MidGray
+import com.nexus.crm.ui.theme.OffWhite
+import com.nexus.crm.ui.theme.LightGray
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -42,8 +45,8 @@ fun TaskListItem(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
-        color = DarkSurface,
-        shape = RoundedCornerShape(12.dp)
+        color = DarkBackground,
+        shape = RoundedCornerShape(12.dp), border = BorderStroke(1.dp, DarkBorder)
     ) {
         Row(
             modifier = Modifier
@@ -56,8 +59,8 @@ fun TaskListItem(
                 onCheckedChange = { onToggleComplete() },
                 colors = CheckboxDefaults.colors(
                     checkedColor = SupabaseGreen,
-                    uncheckedColor = TextMuted,
-                    checkmarkColor = DarkSurface
+                    uncheckedColor = MidGray,
+                    checkmarkColor = DarkBackground
                 )
             )
 
@@ -66,14 +69,14 @@ fun TaskListItem(
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = task.title,
-                    color = if (task.isCompleted) TextMuted else TextPrimary,
+                    color = if (task.isCompleted) MidGray else OffWhite,
                     fontWeight = FontWeight.Medium,
                     fontSize = 14.sp,
                     textDecoration = if (task.isCompleted) TextDecoration.LineThrough else null
                 )
                 Text(
                     text = dateFormat.format(Date(task.dueDate)),
-                    color = TextSecondary,
+                    color = LightGray,
                     fontSize = 12.sp
                 )
             }

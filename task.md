@@ -1,0 +1,12 @@
+- [x] Update root Gradle wrapper and Kotlin version (verified)
+- [x] Add required dependencies to app/build.gradle.kts (Compose, Material3, Navigation, Hilt, Room, Coil, Coroutines, Paging)
+- [ ] Configure Hilt plugin in root build.gradle.kts
+- [x] Create UI theme files matching DESIGN.md (colors, typography, shapes)
+- [x] Refactor architecture: add ViewModel, Repository, Domain layers (Verified)
+- [x] Migrate UI to Jetpack Compose screens (Dashboard, Contacts, Add/Edit, Detail, Deals, Tasks fully modernized)
+- [x] Implement NavigationCompose host (Verified)
+- [x] Add data seeding (Improved and robust)
+- [x] Add unit and UI tests (Implemented comprehensive suite)
+- [ ] Set up CI workflow (GitHub Actions)
+- [x] Update README and documentation
+- [ ] Optimize performance (ProGuard, Coil caching, recomposition)

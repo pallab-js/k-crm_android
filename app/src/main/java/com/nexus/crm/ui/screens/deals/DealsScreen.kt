@@ -41,11 +41,11 @@ import com.nexus.crm.data.model.DealStage
 import com.nexus.crm.ui.components.DealListItem
 import com.nexus.crm.ui.components.FilterChip
 import com.nexus.crm.ui.components.NexusFAB
-import com.nexus.crm.ui.theme.DarkSurface
+import com.nexus.crm.ui.theme.DarkBackground
 import com.nexus.crm.ui.theme.SupabaseGreen
-import com.nexus.crm.ui.theme.TextMuted
-import com.nexus.crm.ui.theme.TextPrimary
-import com.nexus.crm.ui.theme.TextSecondary
+import com.nexus.crm.ui.theme.MidGray
+import com.nexus.crm.ui.theme.OffWhite
+import com.nexus.crm.ui.theme.LightGray
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -62,7 +62,7 @@ fun DealsScreen(
         floatingActionButton = {
             NexusFAB(onClick = { showAddDialog = true })
         },
-        containerColor = DarkSurface,
+        containerColor = DarkBackground,
         topBar = {
             TopAppBar(
                 title = {
@@ -70,11 +70,11 @@ fun DealsScreen(
                         text = "Deals",
                         style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.SemiBold,
-                        color = TextPrimary
+                        color = OffWhite
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = DarkSurface
+                    containerColor = DarkBackground
                 )
             )
         }
@@ -111,7 +111,7 @@ fun DealsScreen(
                     Text(
                         text = "No deals in ${uiState.selectedStage.name.replace("_", " ")}",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = TextMuted
+                        color = MidGray
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
@@ -167,11 +167,11 @@ fun AddDealDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        containerColor = DarkSurface,
+        containerColor = DarkBackground,
         title = {
             Text(
                 text = "New Deal",
-                color = TextPrimary
+                color = OffWhite
             )
         },
         text = {
@@ -183,9 +183,9 @@ fun AddDealDialog(
                     singleLine = true,
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = SupabaseGreen,
-                        unfocusedBorderColor = TextMuted,
-                        focusedTextColor = TextPrimary,
-                        unfocusedTextColor = TextPrimary
+                        unfocusedBorderColor = MidGray,
+                        focusedTextColor = OffWhite,
+                        unfocusedTextColor = OffWhite
                     )
                 )
                 OutlinedTextField(
@@ -195,9 +195,9 @@ fun AddDealDialog(
                     singleLine = true,
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = SupabaseGreen,
-                        unfocusedBorderColor = TextMuted,
-                        focusedTextColor = TextPrimary,
-                        unfocusedTextColor = TextPrimary
+                        unfocusedBorderColor = MidGray,
+                        focusedTextColor = OffWhite,
+                        unfocusedTextColor = OffWhite
                     )
                 )
                 OutlinedTextField(
@@ -207,9 +207,9 @@ fun AddDealDialog(
                     singleLine = true,
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = SupabaseGreen,
-                        unfocusedBorderColor = TextMuted,
-                        focusedTextColor = TextPrimary,
-                        unfocusedTextColor = TextPrimary
+                        unfocusedBorderColor = MidGray,
+                        focusedTextColor = OffWhite,
+                        unfocusedTextColor = OffWhite
                     )
                 )
             }
@@ -229,12 +229,12 @@ fun AddDealDialog(
                     containerColor = SupabaseGreen
                 )
             ) {
-                Text("Add", color = DarkSurface)
+                Text("Add", color = DarkBackground)
             }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Cancel", color = TextMuted)
+                Text("Cancel", color = MidGray)
             }
         }
     )

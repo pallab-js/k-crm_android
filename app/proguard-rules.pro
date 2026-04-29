@@ -12,3 +12,10 @@
 
 # Keep Compose
 -keep class androidx.compose.** { *; }
+
+# SQLCipher rules
+-keep class net.zetetic.database.** { *; }
+-keep class net.zetetic.database.sqlcipher.** { *; }
+
+# Timber rules
+-keep class timber.log.** { *; }

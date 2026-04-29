@@ -21,22 +21,22 @@ private val DarkColorScheme = darkColorScheme(
     onSecondaryContainer = SupabaseGreen,
     tertiary = StatusOpportunity,
     onTertiary = NearBlack,
-    tertiaryContainer = BorderProminent,
-    onTertiaryContainer = TextPrimary,
+    tertiaryContainer = MidBorder,
+    onTertiaryContainer = OffWhite,
     error = PriorityHigh,
-    onError = TextPrimary,
-    errorContainer = BorderProminent,
+    onError = OffWhite,
+    errorContainer = MidBorder,
     onErrorContainer = PriorityHigh,
-    background = DarkSurface,
-    onBackground = TextPrimary,
-    surface = DarkSurface,
-    onSurface = TextPrimary,
-    surfaceVariant = SurfaceElevated,
-    onSurfaceVariant = TextSecondary,
-    outline = BorderDefault,
-    outlineVariant = BorderSubtle,
-    inverseSurface = TextPrimary,
-    inverseOnSurface = DarkSurface,
+    background = DarkBackground,
+    onBackground = OffWhite,
+    surface = DarkBackground,
+    onSurface = OffWhite,
+    surfaceVariant = NearBlack,
+    onSurfaceVariant = LightGray,
+    outline = BorderDark,
+    outlineVariant = DarkBorder,
+    inverseSurface = OffWhite,
+    inverseOnSurface = DarkBackground,
     inversePrimary = SupabaseGreen,
     surfaceTint = SupabaseGreen
 )
@@ -52,7 +52,7 @@ fun NexusTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = DarkSurface.toArgb()
+            window.statusBarColor = DarkBackground.toArgb()
             window.navigationBarColor = NearBlack.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = false
             WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = false

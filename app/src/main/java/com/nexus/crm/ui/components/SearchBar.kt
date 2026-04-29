@@ -18,8 +18,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.nexus.crm.ui.theme.BorderDefault
 import com.nexus.crm.ui.theme.SupabaseGreen
-import com.nexus.crm.ui.theme.TextMuted
-import com.nexus.crm.ui.theme.TextPrimary
+import com.nexus.crm.ui.theme.MidGray
+import com.nexus.crm.ui.theme.OffWhite
 
 @Composable
 fun SearchBar(
@@ -37,14 +37,14 @@ fun SearchBar(
         placeholder = {
             Text(
                 text = placeholder,
-                color = TextMuted
+                color = MidGray
             )
         },
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,
                 contentDescription = "Search",
-                tint = TextMuted
+                tint = MidGray
             )
         },
         singleLine = true,
@@ -52,8 +52,8 @@ fun SearchBar(
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = SupabaseGreen,
             unfocusedBorderColor = BorderDefault,
-            focusedTextColor = TextPrimary,
-            unfocusedTextColor = TextPrimary,
+            focusedTextColor = OffWhite,
+            unfocusedTextColor = OffWhite,
             cursorColor = SupabaseGreen,
             focusedContainerColor = BorderDefault.copy(alpha = 0.3f),
             unfocusedContainerColor = BorderDefault.copy(alpha = 0.3f)

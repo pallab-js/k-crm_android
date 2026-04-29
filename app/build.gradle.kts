@@ -16,7 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.nexus.crm.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -24,7 +24,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -93,12 +93,37 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    // Coil
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // Paging 3
+    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
+    implementation("androidx.paging:paging-compose:3.3.0-alpha02")
+
+    // Room Paging
+    implementation("androidx.room:room-paging:2.6.1")
+
+    // SQLCipher for Room Encryption
+    implementation("net.zetetic:android-database-sqlcipher:4.5.4")
+
+    // Timber for Secure Logging
+    implementation("com.jakewharton.timber:timber:5.0.1")
+
     // Testing
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("com.google.truth:truth:1.1.5")
+    testImplementation("app.cash.turbine:turbine:1.0.0")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("org.robolectric:robolectric:4.11.1")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation(composeBom)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.48.1")
+    kspAndroidTest("com.google.dagger:hilt-android-compiler:2.48.1")
+    androidTestImplementation("com.google.truth:truth:1.1.5")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }

@@ -9,7 +9,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.nexus.crm.ui.theme.DarkSurface
+import com.nexus.crm.ui.theme.DarkBackground
 import com.nexus.crm.ui.theme.SupabaseGreen
 
 @Composable
@@ -22,7 +22,7 @@ fun NexusFAB(
         modifier = modifier.size(56.dp),
         shape = CircleShape,
         containerColor = SupabaseGreen,
-        contentColor = DarkSurface
+        contentColor = DarkBackground
     ) {
         Icon(
             imageVector = Icons.Default.Add,

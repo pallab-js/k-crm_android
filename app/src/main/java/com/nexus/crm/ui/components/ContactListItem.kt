@@ -1,5 +1,8 @@
 package com.nexus.crm.ui.components
 
+import androidx.compose.foundation.BorderStroke
+import com.nexus.crm.ui.theme.DarkBorder
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -22,11 +25,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nexus.crm.data.model.Contact
-import com.nexus.crm.ui.theme.DarkSurface
+import com.nexus.crm.ui.theme.DarkBackground
 import com.nexus.crm.ui.theme.SupabaseGreen
-import com.nexus.crm.ui.theme.TextMuted
-import com.nexus.crm.ui.theme.TextPrimary
-import com.nexus.crm.ui.theme.TextSecondary
+import com.nexus.crm.ui.theme.MidGray
+import com.nexus.crm.ui.theme.OffWhite
+import com.nexus.crm.ui.theme.LightGray
 
 @Composable
 fun ContactListItem(
@@ -34,12 +37,18 @@ fun ContactListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+import androidx.compose.foundation.BorderStroke
+import com.nexus.crm.ui.theme.DarkBorder
+
+// ...
+
     Surface(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
-        color = DarkSurface,
-        shape = RoundedCornerShape(12.dp)
+        color = DarkBackground,
+        shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(1.dp, DarkBorder)
     ) {
         Row(
             modifier = Modifier
@@ -67,14 +76,14 @@ fun ContactListItem(
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = contact.name,
-                    color = TextPrimary,
+                    color = OffWhite,
                     fontWeight = FontWeight.Medium,
                     fontSize = 16.sp
                 )
                 if (contact.company.isNotEmpty()) {
                     Text(
                         text = contact.company,
-                        color = TextSecondary,
+                        color = LightGray,
                         fontSize = 14.sp
                     )
                 }

@@ -15,10 +15,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.nexus.crm.ui.theme.DarkSurface
+import com.nexus.crm.ui.theme.DarkBackground
 import com.nexus.crm.ui.theme.SupabaseGreen
-import com.nexus.crm.ui.theme.TextMuted
-import com.nexus.crm.ui.theme.TextPrimary
+import com.nexus.crm.ui.theme.MidGray
+import com.nexus.crm.ui.theme.OffWhite
 
 @Composable
 fun FilterChip(
@@ -27,8 +27,8 @@ fun FilterChip(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val backgroundColor = if (selected) SupabaseGreen else DarkSurface
-    val textColor = if (selected) DarkSurface else TextMuted
+    val backgroundColor = if (selected) SupabaseGreen else DarkBackground
+    val textColor = if (selected) DarkBackground else MidGray
 
     Box(
         modifier = modifier
